@@ -169,6 +169,35 @@
   }
 
   /**
+   * certificate isotope and filter
+   */
+  window.addEventListener('load', () => {
+    let certificatesContainer = select('.certificates-container');
+    if (certificatesContainer) {
+      let certificatesIsotope = new Isotope(certificatesContainer, {
+        itemSelector: '.certificates-item'
+      });
+
+      let certificatesFilters = select('#certificates-flters li', true);
+
+      on('click', '#certificates-flters li', function(e) {
+        e.preventDefault();
+        certificatesFilters.forEach(function(el) {
+          el.classList.remove('filter-active');
+        });
+        this.classList.add('filter-active');
+
+        certificatesIsotope.arrange({
+          filter: this.getAttribute('data-filter')
+        });
+        certificatesIsotope.on('arrangeComplete', function() {
+          AOS.refresh()
+        });
+      }, true);
+    }
+
+  });
+  /**
    * Porfolio isotope and filter
    */
   window.addEventListener('load', () => {
