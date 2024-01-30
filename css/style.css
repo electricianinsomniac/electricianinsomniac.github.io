@@ -1054,6 +1054,17 @@ section {
   padding: 0;
 }
 
+.portfolio-details-banner {
+  width: 100%;
+  max-height: 400px; /* Sesuaikan dengan tinggi yang diinginkan */
+  overflow: hidden;
+}
+
+.portfolio-details-banner img {
+  width: 100%;
+  height: auto;
+}
+
 
 .video-container {
   text-align: center;
