@@ -1823,3 +1823,10 @@ html[data-ai-insight="soon"] .feature-ai {
 .demo-qr {
   max-width: 220px;
 }
+
+.demo-intro {
+  max-width: 860px;
+  margin: 0 auto 28px;
+  text-align: center;
+  color: #45505b;
+}
