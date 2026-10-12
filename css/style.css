@@ -1771,3 +1771,8 @@ section {
     padding: 22px 18px;
   }
 }
+
+#hero .hero-tagline {
+  color: #0563bb;
+  font-weight: 500;
+}
