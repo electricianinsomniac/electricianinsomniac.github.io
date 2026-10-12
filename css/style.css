@@ -1776,3 +1776,50 @@ section {
   color: #0563bb;
   font-weight: 500;
 }
+
+/* AI Insight status flag: set data-ai-insight="soon" | "live" on <html> in index.html */
+html[data-ai-insight="soon"] .ai-live,
+html[data-ai-insight="live"] .ai-soon {
+  display: none !important;
+}
+
+html[data-ai-insight="soon"] .feature-ai {
+  position: relative;
+  border: 2px dashed #8a99a8;
+  box-shadow: none;
+}
+
+.feature-ai {
+  position: relative;
+}
+
+.badge-live {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  padding: 4px 12px;
+  border-radius: 50px;
+  background: #d9f2e3;
+  color: #14532d;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.btn-hero.btn-small {
+  margin-top: 16px;
+  padding: 8px 20px;
+  font-size: 14px;
+}
+
+.demo-note p {
+  margin: 0 0 6px;
+}
+
+.demo-note ul {
+  margin: 0;
+  padding-left: 22px;
+}
+
+.demo-qr {
+  max-width: 220px;
+}

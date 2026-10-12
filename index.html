@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html lang="id">
+<!--
+  STATUS FITUR AI INSIGHT — ubah HANYA atribut data-ai-insight di bawah ini:
+    data-ai-insight="soon"  → tampil "Segera hadir" (belum live)
+    data-ai-insight="live"  → tampil sebagai fitur aktif
+-->
+<html lang="id" data-ai-insight="soon">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
 
-  <title>SatsetSaji — Scan, pesan, langsung tersaji.</title>
-  <meta content="SatsetSaji: sistem pemesanan QR untuk restoran dan kafe UMKM di Indonesia: menu digital, pesanan real-time ke dapur (KDS), kasir dan pembayaran online, serta laporan. Saat ini dalam tahap pilot di 1 restoran." name="description">
+  <title>SatSetSaji — Scan, pesan, langsung tersaji.</title>
+  <meta content="SatSetSaji: sistem pemesanan QR untuk restoran dan kafe UMKM di Indonesia — menu digital, pesanan real-time ke dapur (KDS), kasir dan pembayaran online, serta laporan. Saat ini dalam tahap demo." name="description">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:locale" content="id_ID">
-  <meta property="og:title" content="SatsetSaji — Scan, pesan, langsung tersaji.">
-  <meta property="og:description" content="Sistem pemesanan QR SatsetSaji: menu digital, pesanan real-time ke dapur, kasir dan pembayaran online untuk restoran dan kafe UMKM di Indonesia. Tahap pilot di 1 restoran.">
+  <meta property="og:site_name" content="SatSetSaji">
+  <meta property="og:title" content="SatSetSaji — Scan, pesan, langsung tersaji.">
+  <meta property="og:description" content="QR ordering for Indonesian restaurants. Menu digital, pesanan real-time ke dapur, kasir dan pembayaran online untuk restoran dan kafe UMKM. Tahap demo.">
   <meta property="og:url" content="https://www.electricianinsomniac.my.id/">
   <!-- TODO: ganti dengan gambar OG khusus produk (1200x630), mis. tangkapan layar aplikasi -->
   <meta property="og:image" content="https://www.electricianinsomniac.my.id/img/hero-bg.jpg">
@@ -65,11 +71,11 @@
   <!-- ======= Hero Section ======= -->
   <section id="hero" class="hero-product d-flex flex-column justify-content-center">
     <div class="container" data-aos="zoom-in" data-aos-delay="100">
-      <h1>SatsetSaji</h1>
+      <h1>SatSetSaji</h1>
       <p class="hero-tagline">Scan, pesan, langsung tersaji.</p>
       <p class="hero-sub">Sistem pemesanan QR untuk restoran &amp; kafe UMKM di Indonesia.</p>
       <div class="hero-actions">
-        <a href="#demo" class="btn-hero scrollto">Lihat Demo</a>
+        <a href="#demo" class="btn-hero scrollto">Coba Demo</a>
         <a href="#kontak" class="btn-hero btn-hero-outline scrollto">Hubungi Kami</a>
       </div>
     </div>
@@ -96,7 +102,7 @@
           <div class="col-lg-6">
             <div class="ps-card ps-card-solution">
               <h3><i class="bi bi-check-circle" aria-hidden="true"></i> Solusi</h3>
-              <p>Pelanggan memesan sendiri dari meja lewat QR. Pesanan langsung masuk ke layar dapur (KDS) dan kasir, pembayaran bisa dilakukan online, dan pemilik bisa melihat laporan penjualan di satu tempat.</p>
+              <p>Dengan SatSetSaji, pelanggan memesan sendiri dari meja lewat QR tanpa instal aplikasi. Pesanan langsung masuk ke layar dapur (KDS) dan kasir, pembayaran bisa dilakukan online, dan pemilik bisa melihat laporan penjualan di satu tempat.</p>
             </div>
           </div>
         </div>
@@ -124,13 +130,13 @@
             <span class="step-num" aria-hidden="true">2</span>
             <i class="bx bx-food-menu" aria-hidden="true"></i>
             <h4>Pesan</h4>
-            <p>Pilih menu lengkap dengan foto, atur opsi sesuai selera, lalu kirim pesanan.</p>
+            <p>Pilih menu lengkap dengan foto, atur opsi kustomisasi, lalu kirim pesanan.</p>
           </li>
           <li class="step">
             <span class="step-num" aria-hidden="true">3</span>
             <i class="bx bx-credit-card" aria-hidden="true"></i>
             <h4>Bayar</h4>
-            <p>Bayar online melalui Midtrans atau langsung di kasir.</p>
+            <p>Bayar online melalui Midtrans, atau di kasir.</p>
           </li>
         </ol>
 
@@ -138,21 +144,21 @@
         <ol class="steps">
           <li class="step">
             <span class="step-num" aria-hidden="true">1</span>
+            <i class="bx bx-dish" aria-hidden="true"></i>
+            <h4>Dapur (KDS)</h4>
+            <p>Pesanan masuk real-time ke layar dapur, lengkap dengan opsi kustomisasi.</p>
+          </li>
+          <li class="step">
+            <span class="step-num" aria-hidden="true">2</span>
             <i class="bx bx-store-alt" aria-hidden="true"></i>
             <h4>Kasir</h4>
             <p>Pantau pesanan dan status pembayaran setiap meja dari panel kasir.</p>
           </li>
           <li class="step">
-            <span class="step-num" aria-hidden="true">2</span>
-            <i class="bx bx-dish" aria-hidden="true"></i>
-            <h4>Dapur (KDS)</h4>
-            <p>Pesanan masuk real-time ke layar dapur, lengkap dengan catatan kustomisasi.</p>
-          </li>
-          <li class="step">
             <span class="step-num" aria-hidden="true">3</span>
             <i class="bx bx-bar-chart-alt-2" aria-hidden="true"></i>
             <h4>Laporan</h4>
-            <p>Lihat ringkasan penjualan dan menu terlaris untuk mengambil keputusan.</p>
+            <p>Lihat penjualan, menu terlaris, dan penjualan per jam.</p>
           </li>
         </ol>
 
@@ -170,23 +176,30 @@
         <div class="row gy-4">
           <div class="col-lg-4 col-md-6">
             <div class="feature-card">
+              <i class="bx bx-qr-scan" aria-hidden="true"></i>
+              <h4>Pesan lewat QR meja</h4>
+              <p>Pelanggan memesan dari ponsel lewat QR di meja, tanpa instal aplikasi.</p>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="feature-card">
               <i class="bx bx-food-menu" aria-hidden="true"></i>
               <h4>Menu digital</h4>
-              <p>Menu dengan foto dan opsi kustomisasi (varian, tambahan, catatan).</p>
+              <p>Menu dengan foto dan opsi kustomisasi.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="feature-card">
               <i class="bx bx-dish" aria-hidden="true"></i>
               <h4>Pesanan real-time ke dapur</h4>
-              <p>Kitchen Display System (KDS) menerima pesanan seketika setelah dikirim pelanggan.</p>
+              <p>Pesanan masuk seketika ke layar dapur (Kitchen Display System/KDS).</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="feature-card">
               <i class="bx bx-credit-card" aria-hidden="true"></i>
               <h4>Kasir &amp; pembayaran online</h4>
-              <p>Panel kasir terintegrasi dengan pembayaran online melalui Midtrans.</p>
+              <p>Panel kasir dengan pembayaran online melalui Midtrans (mode sandbox di demo).</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
@@ -200,22 +213,24 @@
             <div class="feature-card">
               <i class="bx bx-bar-chart-alt-2" aria-hidden="true"></i>
               <h4>Laporan &amp; analitik</h4>
-              <p>Rekap penjualan dan performa menu untuk pemilik restoran.</p>
+              <p>Penjualan, menu terlaris, dan penjualan per jam.</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
             <div class="feature-card">
               <i class="bx bx-shield-quarter" aria-hidden="true"></i>
               <h4>Peran staf &amp; audit log</h4>
-              <p>Hak akses berbeda untuk tiap peran staf, dengan catatan aktivitas (audit log).</p>
+              <p>Hak akses terpisah untuk kasir dan admin, dengan catatan aktivitas (audit log).</p>
             </div>
           </div>
           <div class="col-lg-4 col-md-6">
-            <div class="feature-card feature-soon">
-              <span class="badge-soon">Segera hadir</span>
+            <!-- Status kartu ini mengikuti data-ai-insight di tag <html> -->
+            <div class="feature-card feature-ai">
+              <span class="badge-soon ai-soon">Segera hadir</span>
+              <span class="badge-live ai-live">Tersedia</span>
               <i class="bx bx-bulb" aria-hidden="true"></i>
-              <h4>AI Insight laporan (Claude)</h4>
-              <p>Ringkasan dan insight otomatis dari laporan penjualan menggunakan Claude. Fitur ini sedang dikembangkan dan belum tersedia.</p>
+              <h4>AI Insight</h4>
+              <p>Ringkasan laporan penjualan dalam Bahasa Indonesia yang dibuat oleh Claude (Anthropic).<span class="ai-soon"> Fitur ini belum tersedia.</span></p>
             </div>
           </div>
         </div>
@@ -228,12 +243,20 @@
       <div class="container" data-aos="fade-up">
 
         <div class="section-title">
-          <h2>Demo</h2>
-          <p>Coba langsung tiga aplikasi yang saling terhubung.</p>
+          <h2>Coba Demo</h2>
+          <p>Rasakan alur pemesanan sebagai pelanggan di restoran demo Malalabar.</p>
         </div>
 
-        <div class="row gy-4">
+        <div class="row gy-4 justify-content-center">
+          <!-- TODO: aktifkan blok QR di bawah setelah gambar QR meja demo tersedia (isi path src, mis. img/demo-qr.png)
           <div class="col-lg-4 col-md-6">
+            <div class="demo-card text-center">
+              <img src="img/demo-qr.png" class="img-fluid demo-qr" alt="Kode QR meja demo SatSetSaji">
+              <p class="mt-3">Pindai dengan kamera ponsel untuk memesan dari meja demo.</p>
+            </div>
+          </div>
+          -->
+          <div class="col-lg-5 col-md-6">
             <a class="demo-card" href="https://malalabar-customer.vercel.app" target="_blank" rel="noopener">
               <i class="bx bx-mobile-alt" aria-hidden="true"></i>
               <h4>Aplikasi Pelanggan</h4>
@@ -241,25 +264,24 @@
               <span class="demo-link">malalabar-customer.vercel.app <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
             </a>
           </div>
-          <div class="col-lg-4 col-md-6">
-            <a class="demo-card" href="https://malalabar-admin.vercel.app" target="_blank" rel="noopener">
-              <i class="bx bx-desktop" aria-hidden="true"></i>
-              <h4>Admin &amp; Kasir</h4>
-              <p>Kasir, menu, meja &amp; QR, laporan, dan pengaturan staf.</p>
-              <span class="demo-link">malalabar-admin.vercel.app <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
-            </a>
-          </div>
-          <div class="col-lg-4 col-md-6">
-            <a class="demo-card" href="https://malalabar-kds.vercel.app" target="_blank" rel="noopener">
-              <i class="bx bx-dish" aria-hidden="true"></i>
-              <h4>Dapur (KDS)</h4>
-              <p>Layar dapur yang menerima pesanan secara real-time.</p>
-              <span class="demo-link">malalabar-kds.vercel.app <i class="bi bi-box-arrow-up-right" aria-hidden="true"></i></span>
-            </a>
+          <div class="col-lg-5 col-md-6">
+            <div class="demo-card">
+              <i class="bx bx-lock-alt" aria-hidden="true"></i>
+              <h4>Demo Admin, Kasir &amp; Dapur</h4>
+              <p>Akses panel admin, kasir, dan dapur (KDS) diberikan atas permintaan melalui email.</p>
+              <a href="mailto:founder@electricianinsomniac.my.id?subject=Permintaan%20akses%20demo%20admin%20SatSetSaji" class="btn-hero btn-hero-outline btn-small">Minta akses demo admin</a>
+            </div>
           </div>
         </div>
 
-        <p class="demo-note"><i class="bi bi-info-circle" aria-hidden="true"></i> Ini adalah lingkungan demo. Data di dalamnya hanya untuk percobaan dan tidak memproses transaksi nyata.</p>
+        <div class="demo-note">
+          <p><i class="bi bi-info-circle" aria-hidden="true"></i> <strong>Catatan demo:</strong></p>
+          <ul>
+            <li>Malalabar adalah restoran demo; semua menu dan pesanan memakai data contoh.</li>
+            <li>Pembayaran memakai Midtrans mode sandbox — tidak ada uang sungguhan yang ditagih.</li>
+            <li>Server demo bisa butuh sekitar 1 menit untuk aktif saat pertama kali dibuka.</li>
+          </ul>
+        </div>
 
       </div>
     </section><!-- End Demo -->
@@ -276,14 +298,14 @@
           <div class="col-md-6">
             <div class="ps-card">
               <h3><i class="bi bi-flag" aria-hidden="true"></i> Tahap saat ini</h3>
-              <p>Pilot di 1 restoran: <strong>Malalabar</strong>.</p>
-              <p class="mb-0">Fitur AI Insight laporan (Claude) masih dalam pengembangan.</p>
+              <p>Tahap demo — SatSetSaji belum dipakai oleh restoran sungguhan.</p>
+              <p class="mb-0"><span class="ai-soon">Fitur AI Insight (Claude) masih dalam pengembangan dan belum live.</span><span class="ai-live">Fitur AI Insight (Claude) sudah tersedia.</span></p>
             </div>
           </div>
           <div class="col-md-6">
             <div class="ps-card">
               <h3><i class="bi bi-tag" aria-hidden="true"></i> Harga</h3>
-              <p class="mb-0">Paket dan harga akan didiskusikan sesuai kebutuhan restoran. Silakan <a href="#kontak" class="scrollto">hubungi kami</a>.</p>
+              <p class="mb-0">Belum ada paket harga. Jika tertarik, silakan <a href="#kontak" class="scrollto">hubungi kami</a>.</p>
             </div>
           </div>
         </div>
@@ -305,7 +327,7 @@
           </div>
           <div class="col-md-9">
             <h3>Muhammad Rismawan</h3>
-            <p>Lulusan Sarjana Teknik Elektro Universitas Islam Indonesia yang berbasis di Jakarta Barat. Berpengalaman sebagai RPA Developer dan desainer grafis, kini membangun SatsetSaji untuk membantu restoran dan kafe UMKM bekerja lebih efisien.</p>
+            <p>Lulusan Sarjana Teknik Elektro Universitas Islam Indonesia yang berbasis di Jakarta Barat. Berpengalaman sebagai RPA Developer dan desainer grafis, kini membangun SatSetSaji untuk membantu restoran dan kafe UMKM bekerja lebih efisien.</p>
             <a href="founder.html" class="btn-hero">Lihat profil founder</a>
           </div>
         </div>
@@ -319,9 +341,10 @@
 
         <div class="section-title">
           <h2>About (English)</h2>
+          <p>QR ordering for Indonesian restaurants.</p>
         </div>
 
-        <p>SatsetSaji is a QR-based ordering system for small and medium restaurants and cafés in Indonesia. Customers scan a QR code at their table, order from a digital menu with photos and customization options, and pay online via Midtrans, while staff handle orders through connected cashier, kitchen display (KDS) and reporting apps. The product is currently in a pilot at one restaurant, Malalabar. An AI report-insight feature powered by Claude is in development and is not live yet.</p>
+        <p>SatSetSaji is a QR-based ordering system for small and medium restaurants and cafés in Indonesia. Customers scan a QR code at their table, order from a digital menu with photos and customization options, and pay online via Midtrans, while staff work from connected kitchen display (KDS), cashier and reporting screens. The product is at the demo stage and is not yet used by any real restaurant; the public demo runs on sample data with sandbox payments. <span class="ai-soon">An AI Insight feature that uses Claude (Anthropic) to summarize sales reports in Indonesian is in development and not live yet.</span><span class="ai-live">An AI Insight feature uses Claude (Anthropic) to summarize sales reports in Indonesian.</span></p>
 
       </div>
     </section><!-- End About (English) -->
@@ -332,7 +355,7 @@
 
         <div class="section-title">
           <h2>Kontak</h2>
-          <p>Tertarik mencoba di restoran Anda, atau ingin bertanya? Kirim email kepada kami.</p>
+          <p>Tertarik mencoba SatSetSaji atau ingin bertanya? Kirim email kepada kami.</p>
         </div>
 
         <div class="contact-box text-center">
