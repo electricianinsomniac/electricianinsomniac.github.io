@@ -30,6 +30,9 @@
   --mg-accent: var(--accent-mint);
   --mg-accent-dark: var(--accent-emerald);
   --mg-accent-light: rgba(32, 217, 167, 0.12);
+  /* Mint fails contrast as text on mint-white; use these for accent type in light mode. */
+  --accent-ink: #0B8F6B;
+  --accent-label: var(--accent-emerald);
   --mg-radius: 12px;
   --mg-shadow: 0 4px 24px rgba(7, 42, 32, 0.08);
 }
@@ -53,6 +56,8 @@ html[data-theme="dark"] {
   --glow-color: rgba(79, 255, 176, 0.14);
   --mg-accent-light: rgba(79, 255, 176, 0.12);
   --mg-accent-dark: var(--accent-mint);
+  --accent-ink: var(--accent-mint);
+  --accent-label: var(--accent-mint);
   --mg-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
@@ -143,7 +148,7 @@ body.monographic-page .mg-topbar-brand {
 }
 
 body.monographic-page .mg-topbar-brand span {
-  color: var(--mg-accent);
+  color: var(--accent-ink);
 }
 
 .mg-theme-toggle {
@@ -173,7 +178,7 @@ body.monographic-page .mg-topbar-brand span {
 }
 
 .mg-theme-toggle i {
-  color: var(--mg-accent);
+  color: var(--accent-ink);
   font-size: 15px;
 }
 
@@ -185,7 +190,6 @@ body.monographic-page .mg-topbar-brand span {
 .mg-footer-brand {
   display: inline-flex;
   align-items: center;
-  gap: 10px;
   color: var(--mg-ink) !important;
   font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
@@ -196,7 +200,7 @@ body.monographic-page .mg-topbar-brand span {
 }
 
 .mg-footer-brand span {
-  color: var(--mg-accent);
+  color: var(--accent-ink);
 }
 
 .mg-btn:focus-visible,
@@ -255,7 +259,7 @@ body.monographic-page .mg-topbar-brand span {
   display: inline-flex;
   align-items: center;
   gap: 9px;
-  color: var(--mg-accent);
+  color: var(--accent-label);
   font-size: 11px;
   font-weight: 600;
   letter-spacing: 0.06em;
@@ -293,7 +297,8 @@ body.monographic-page .mg-topbar-brand span {
 
 .mg-hero h1 span {
   display: block;
-  color: var(--accent-mint);
+  color: var(--accent-ink);
+  font-style: italic;
 }
 
 .mg-hero-lead {
@@ -438,7 +443,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 
 .mg-board-topline i {
   margin-left: 5px;
-  color: var(--mg-accent);
+  color: var(--accent-ink);
 }
 
 .mg-board-grid {
@@ -601,7 +606,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 }
 
 .mg-board-footline i {
-  color: var(--mg-accent);
+  color: var(--accent-ink);
 }
 
 .mg-board-orbit {
@@ -643,10 +648,10 @@ body.monographic-page a.mg-btn-secondary:hover {
 .mg-section-heading h2,
 .mg-contact-panel h2 {
   margin: 0 0 16px;
-  font-size: clamp(30px, 3.2vw, 40px);
-  font-weight: 700;
-  letter-spacing: -0.045em;
-  line-height: 1.16;
+  font-size: clamp(36px, 4.4vw, 56px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 1.05;
 }
 
 .mg-section-heading p {
@@ -747,6 +752,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   gap: 11px;
   min-height: 54px;
   padding: 10px 14px;
+  border: 1px solid var(--border-subtle);
   border-radius: 12px;
   background: var(--bg-glass);
   color: var(--mg-ink-soft);
@@ -758,7 +764,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 }
 
 .mg-process-flow li span {
-  color: var(--mg-accent);
+  color: var(--accent-ink);
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.08em;
@@ -1254,7 +1260,7 @@ body.monographic-page .mg-footer-back:hover {
 
   .mg-section-heading h2,
   .mg-contact-panel h2 {
-    font-size: 30px;
+    font-size: 34px;
   }
 
   .mg-evolution-card,
