@@ -1762,6 +1762,16 @@ body.founder-page .services .icon-box p {
   padding-bottom: 80px;
 }
 
+#hero.hero-product:before {
+  background: linear-gradient(90deg, rgba(255, 255, 255, 0.88) 0%, rgba(255, 255, 255, 0.7) 45%, rgba(255, 255, 255, 0.15) 100%);
+}
+
+@media (max-width: 991px) {
+  #hero.hero-product:before {
+    background: rgba(255, 255, 255, 0.72);
+  }
+}
+
 #hero.hero-product h1 {
   font-size: 48px;
   line-height: 1.2;
