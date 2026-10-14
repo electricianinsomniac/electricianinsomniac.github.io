@@ -139,7 +139,7 @@
    * Hero type effect
    */
   const typed = select('.typed')
-  if (typed) {
+  if (typed && typeof Typed !== 'undefined') {
     let typed_strings = typed.getAttribute('data-typed-items')
     typed_strings = typed_strings.split(',')
     new Typed('.typed', {
@@ -155,7 +155,7 @@
    * Skills animation
    */
   let skilsContent = select('.skills-content');
-  if (skilsContent) {
+  if (skilsContent && typeof Waypoint !== 'undefined') {
     new Waypoint({
       element: skilsContent,
       offset: '80%',
@@ -173,7 +173,7 @@
    */
   window.addEventListener('load', () => {
     let certificatesContainer = select('.certificates-container');
-    if (certificatesContainer) {
+    if (certificatesContainer && typeof Isotope !== 'undefined') {
       let certificatesIsotope = new Isotope(certificatesContainer, {
         itemSelector: '.certificates-item'
       });
@@ -191,7 +191,7 @@
           filter: this.getAttribute('data-filter')
         });
         certificatesIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
+          if (typeof AOS !== 'undefined') AOS.refresh()
         });
       }, true);
     }
@@ -202,7 +202,7 @@
    */
   window.addEventListener('load', () => {
     let portfolioContainer = select('.portfolio-container');
-    if (portfolioContainer) {
+    if (portfolioContainer && typeof Isotope !== 'undefined') {
       let portfolioIsotope = new Isotope(portfolioContainer, {
         itemSelector: '.portfolio-item'
       });
@@ -220,7 +220,7 @@
           filter: this.getAttribute('data-filter')
         });
         portfolioIsotope.on('arrangeComplete', function() {
-          AOS.refresh()
+          if (typeof AOS !== 'undefined') AOS.refresh()
         });
       }, true);
     }
@@ -230,69 +230,83 @@
   /**
    * Initiate portfolio lightbox 
    */
-  const portfolioLightbox = GLightbox({
-    selector: '.portfolio-lightbox'
-  });
+  if (typeof GLightbox !== 'undefined') {
+    if (select('.portfolio-lightbox')) {
+      GLightbox({
+        selector: '.portfolio-lightbox'
+      });
+    }
 
-  /**
-   * Initiate portfolio details lightbox 
-   */
-  const portfolioDetailsLightbox = GLightbox({
-    selector: '.portfolio-details-lightbox',
-    width: '90%',
-    height: '90vh'
-  });
+    /**
+     * Initiate portfolio details lightbox
+     */
+    if (select('.portfolio-details-lightbox')) {
+      GLightbox({
+        selector: '.portfolio-details-lightbox',
+        width: '90%',
+        height: '90vh'
+      });
+    }
+  }
 
   /**
    * Portfolio details slider
    */
-  new Swiper('.portfolio-details-slider', {
-    speed: 400,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  if (typeof Swiper !== 'undefined' && select('.portfolio-details-slider')) {
+    new Swiper('.portfolio-details-slider', {
+      speed: 400,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 
   /**
    * Testimonials slider
    */
-  new Swiper('.testimonials-slider', {
-    speed: 600,
-    loop: true,
-    autoplay: {
-      delay: 5000,
-      disableOnInteraction: false
-    },
-    slidesPerView: 'auto',
-    pagination: {
-      el: '.swiper-pagination',
-      type: 'bullets',
-      clickable: true
-    }
-  });
+  if (typeof Swiper !== 'undefined' && select('.testimonials-slider')) {
+    new Swiper('.testimonials-slider', {
+      speed: 600,
+      loop: true,
+      autoplay: {
+        delay: 5000,
+        disableOnInteraction: false
+      },
+      slidesPerView: 'auto',
+      pagination: {
+        el: '.swiper-pagination',
+        type: 'bullets',
+        clickable: true
+      }
+    });
+  }
 
   /**
    * Animation on scroll
    */
-  window.addEventListener('load', () => {
-    AOS.init({
-      duration: 1000,
-      easing: 'ease-in-out',
-      once: true,
-      mirror: false
-    })
-  });
+  if (typeof AOS !== 'undefined') {
+    window.addEventListener('load', () => {
+      AOS.init({
+        duration: 1000,
+        easing: 'ease-in-out',
+        once: true,
+        mirror: false
+      })
+    });
+  }
 
   /**
    * Initiate Pure Counter 
    */
-  new PureCounter();
+  if (typeof PureCounter !== 'undefined') {
+    new PureCounter();
+  }
 
 })()

@@ -1,9 +1,11 @@
 # electricianinsomniac.github.io
 
-Situs statis (template BootstrapMade MyResume) untuk www.electricianinsomniac.my.id:
+Personal portfolio website for Muhammad Rismawan at www.electricianinsomniac.my.id:
 
-- `index.html` — landing page produk sistem pemesanan QR untuk restoran.
-- `founder.html` — profil founder (resume, sertifikat, portofolio).
-- `portfolio-*.html` — detail proyek portofolio.
+- `index.html` — Personal Portfolio Hub (English) with project showcase cards.
+- `satsetsaji.html` — SatSetSaji landing page (QR ordering for restaurants).
+- `deries-garment.html` — Deries Garment B2B prayerwear showcase page.
+- `founder.html` — Founder profile (resume, certificates, portfolio).
+- `portfolio-*.html` — Portfolio project detail pages.
 
-Preview lokal: `python -m http.server 8000` lalu buka http://localhost:8000/
+Preview locally: `python -m http.server 8000` then open http://localhost:8000/

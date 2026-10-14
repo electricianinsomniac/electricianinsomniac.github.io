@@ -1830,3 +1830,91 @@ html[data-ai-insight="soon"] .feature-ai {
   text-align: center;
   color: #45505b;
 }
+
+/*--------------------------------------------------------------
+# Portfolio Hub — Venture Cards
+--------------------------------------------------------------*/
+.ventures .venture-card {
+  position: relative;
+  height: 100%;
+  padding: 36px 32px 32px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  border-top: 4px solid #0563bb;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.ventures .venture-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.12);
+}
+
+.ventures .venture-badge {
+  display: inline-block;
+  padding: 5px 14px;
+  border-radius: 50px;
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+  align-self: flex-start;
+}
+
+.ventures .venture-badge-tech {
+  background: #e8f4fd;
+  color: #0563bb;
+}
+
+.ventures .venture-badge-mfg {
+  background: #fdf4e8;
+  color: #8b6f47;
+}
+
+.ventures .venture-icon {
+  margin-bottom: 14px;
+}
+
+.ventures .venture-icon i {
+  font-size: 42px;
+  color: #0563bb;
+}
+
+#card-deries .venture-icon i {
+  color: #8b6f47;
+}
+
+#card-deries {
+  border-top-color: #8b6f47;
+}
+
+.ventures .venture-card h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: #45505b;
+  margin-bottom: 12px;
+  line-height: 1.4;
+}
+
+.ventures .venture-card p {
+  color: #5a6570;
+  font-size: 15px;
+  line-height: 1.7;
+  flex: 1;
+  margin-bottom: 20px;
+}
+
+.ventures .venture-card .btn-hero {
+  align-self: flex-start;
+  font-size: 14px;
+  padding: 10px 22px;
+}
+
+@media (max-width: 576px) {
+  .ventures .venture-card {
+    padding: 28px 22px 24px;
+  }
+}
