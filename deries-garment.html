@@ -470,12 +470,11 @@
       }
     });
 
-    // Hero slider: crossfade every 4.5s, paused on hover/focus, manual only with reduced motion
+    // Hero slider: auto crossfade every 4.5s, paused on hover/focus (instant swap with reduced motion)
     const slider = document.querySelector('.dg-slider');
     if (slider) {
       const slides = slider.querySelectorAll('.dg-slide');
       const dots = slider.querySelectorAll('.dg-slider-dot');
-      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
       let current = 0;
       let timer = null;
       const show = function(index) {
@@ -487,7 +486,7 @@
         });
       };
       const start = function() {
-        if (reduceMotion || timer || slides.length < 2) return;
+        if (timer || slides.length < 2) return;
         timer = setInterval(function() { show(current + 1); }, 4500);
       };
       const stop = function() {
