@@ -426,18 +426,41 @@ section {
 .about .content ul li {
   margin-bottom: 20px;
   display: flex;
-  align-items: center;
+  align-items: flex-start;
 }
 
 .about .content ul strong {
   margin-right: 10px;
+  white-space: nowrap;
 }
 
 .about .content ul i {
   font-size: 16px;
   margin-right: 5px;
+  margin-top: 5px;
   color: #0563bb;
   line-height: 0;
+  flex: 0 0 16px;
+}
+
+.about .content a.about-project-link {
+  color: #0563bb;
+  font-weight: 600;
+  text-decoration: underline;
+  text-decoration-color: rgba(5, 99, 187, 0.35);
+  text-underline-offset: 3px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.about .content a.about-project-link:hover,
+.about .content a.about-project-link:focus-visible {
+  color: #044e94;
+  text-decoration-color: currentColor;
+}
+
+.about .content a.about-project-link:focus-visible {
+  outline: 2px solid #0563bb;
+  outline-offset: 3px;
 }
 
 .about .content p:last-child {
