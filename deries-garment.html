@@ -79,8 +79,15 @@
             </div>
           </div>
           <div class="col-lg-6" data-aos="fade-left" data-aos-delay="200">
-            <figure class="dg-media-frame dg-hero-frame">
-              <img src="assets/img/deries/hero-telekung.jpg" alt="Clean telekung drape showing neat face-fit and comfortable design by Deries Garment" class="dg-hero-img" fetchpriority="high">
+            <figure class="dg-media-frame dg-hero-frame dg-slider" aria-roledescription="carousel" aria-label="Telekung size guide">
+              <div class="dg-slides">
+                <img src="img/Telekung/telekung-depan-belakang.jpg" alt="Telekung size guide showing front and back view with full-length measurements" class="dg-hero-img dg-slide is-active" fetchpriority="high">
+                <img src="img/Telekung/telekung-size.jpg" alt="Telekung size guide showing headpiece and skirt measurements" class="dg-hero-img dg-slide" loading="lazy" decoding="async">
+              </div>
+              <div class="dg-slider-dots" role="tablist" aria-label="Choose slide">
+                <button type="button" class="dg-slider-dot is-active" role="tab" aria-selected="true" aria-label="Slide 1: front and back view"></button>
+                <button type="button" class="dg-slider-dot" role="tab" aria-selected="false" aria-label="Slide 2: headpiece and skirt"></button>
+              </div>
             </figure>
           </div>
         </div>
@@ -163,7 +170,7 @@
         <div class="row align-items-center gy-5">
           <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
             <figure class="dg-media-frame dg-comfort-frame">
-              <img src="assets/img/deries/detail-facefit.jpg" alt="Close-up of telekung forehead and chin stitching showing precise face-fit design" class="dg-comfort-img" loading="lazy" decoding="async">
+              <img src="img/Telekung/telekung-face.jpg" alt="Telekung face-fit size chart from XS 52 cm to XL 60 cm, measured around the face opening" class="dg-comfort-img" loading="lazy" decoding="async">
             </figure>
           </div>
           <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
@@ -256,16 +263,24 @@
 
         </div>
 
-        <!-- Video Feature Banner -->
-        <figure class="dg-video-banner" data-aos="fade-up" data-aos-delay="100">
-          <video autoplay loop muted playsinline preload="metadata" aria-label="Embroidery machine working in Tasikmalaya">
-            <source src="assets/video/deries/embroidery-machine.mp4" type="video/mp4">
-            Your browser does not support the video element.
-          </video>
-          <figcaption class="dg-video-caption">
-            <em>Inside Our Ecosystem: Combining precision computer embroidery and traditional Tasikmalaya craftsmanship with thorough family quality control.</em>
-          </figcaption>
-        </figure>
+        <!-- Video Feature -->
+        <div class="dg-video-feature row align-items-center gy-4">
+          <div class="col-lg-5" data-aos="fade-right" data-aos-delay="100">
+            <figure class="dg-video-banner dg-video-square">
+              <video autoplay loop muted playsinline preload="auto" aria-label="Computer embroidery machine stitching a telekung in Tasikmalaya">
+                <source src="img/Telekung/Telekung-process.mp4" type="video/mp4">
+                Your browser does not support the video element.
+              </video>
+            </figure>
+          </div>
+          <div class="col-lg-7" data-aos="fade-left" data-aos-delay="200">
+            <div class="dg-section-title dg-section-title-left">
+              <h2 class="dg-comfort-heading">Inside Our Ecosystem</h2>
+            </div>
+            <p class="dg-comfort-lead">Combining precision computer embroidery and traditional Tasikmalaya craftsmanship with thorough family quality control.</p>
+            <p class="dg-video-desc">Every embroidered telekung passes through computer-guided machines for consistent motifs, then returns to our family team for finishing, thread trimming, and a final check of the face area before packing.</p>
+          </div>
+        </div>
 
       </div>
     </section><!-- End Products Section -->
@@ -454,6 +469,44 @@
         else markAvailable();
       }
     });
+
+    // Hero slider: crossfade every 4.5s, paused on hover/focus, manual only with reduced motion
+    const slider = document.querySelector('.dg-slider');
+    if (slider) {
+      const slides = slider.querySelectorAll('.dg-slide');
+      const dots = slider.querySelectorAll('.dg-slider-dot');
+      const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      let current = 0;
+      let timer = null;
+      const show = function(index) {
+        current = (index + slides.length) % slides.length;
+        slides.forEach(function(slide, i) { slide.classList.toggle('is-active', i === current); });
+        dots.forEach(function(dot, i) {
+          dot.classList.toggle('is-active', i === current);
+          dot.setAttribute('aria-selected', String(i === current));
+        });
+      };
+      const start = function() {
+        if (reduceMotion || timer || slides.length < 2) return;
+        timer = setInterval(function() { show(current + 1); }, 4500);
+      };
+      const stop = function() {
+        clearInterval(timer);
+        timer = null;
+      };
+      dots.forEach(function(dot, i) {
+        dot.addEventListener('click', function() {
+          stop();
+          show(i);
+          start();
+        });
+      });
+      slider.addEventListener('mouseenter', stop);
+      slider.addEventListener('mouseleave', start);
+      slider.addEventListener('focusin', stop);
+      slider.addEventListener('focusout', start);
+      start();
+    }
 
     const embroideryVideo = document.querySelector('.dg-video-banner video');
     const videoFrame = embroideryVideo ? embroideryVideo.closest('.dg-video-banner') : null;
