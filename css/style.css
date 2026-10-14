@@ -1755,6 +1755,7 @@ body.founder-page .services .icon-box p {
 }
 
 #hero.hero-product {
+  background-image: url("../img/bg-tropical.jpg");
   height: auto;
   min-height: 100vh;
   padding-top: 80px;
