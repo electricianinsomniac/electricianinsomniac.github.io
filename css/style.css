@@ -401,9 +401,18 @@ h6 {
   letter-spacing: -0.045em;
 }
 
+#hero.showcase-hero p.showcase-role {
+  margin: 14px 0 0;
+  color: #0563bb;
+  font-family: "Poppins", sans-serif;
+  font-size: clamp(17px, 1.8vw, 23px);
+  font-weight: 500;
+  line-height: 1.4;
+}
+
 #hero.showcase-hero p.showcase-intro {
   max-width: 760px;
-  margin: 20px 0 0;
+  margin: 14px 0 0;
   color: #45505b;
   font-family: "Open Sans", sans-serif;
   font-size: clamp(16px, 1.5vw, 19px);
