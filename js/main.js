@@ -64,10 +64,13 @@
    * Scrolls to an element with header offset
    */
   const scrollto = (el) => {
-    let elementPos = select(el).offsetTop
+    let target = select(el)
+    let elementPos = target.getBoundingClientRect().top + window.pageYOffset
+    let scrollMarginTop = parseFloat(window.getComputedStyle(target).scrollMarginTop) || 0
+    let prefersReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches
     window.scrollTo({
-      top: elementPos,
-      behavior: 'smooth'
+      top: elementPos - scrollMarginTop,
+      behavior: prefersReducedMotion ? 'auto' : 'smooth'
     })
   }
 

@@ -1,9 +1,21 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="id" data-theme="light">
 
 <head>
   <meta charset="utf-8">
   <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <!-- Use the saved preference before CSS renders; first visits stay in light mode. -->
+  <script>
+    (function() {
+      try {
+        const savedTheme = window.localStorage.getItem('monographic-theme');
+        document.documentElement.setAttribute('data-theme', savedTheme === 'dark' ? 'dark' : 'light');
+      } catch (error) {
+        document.documentElement.setAttribute('data-theme', 'light');
+      }
+    })();
+  </script>
 
   <title>monographic.co — AI-Powered DFY Creative Agency</title>
   <meta name="description" content="monographic.co adalah AI-Powered Done-For-You Creative Agency yang memadukan strategi kreatif dan workflow berbantuan AI untuk membantu bisnis bergerak dari brief ke aset siap pakai.">
@@ -21,7 +33,7 @@
   <link href="img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS Files -->
   <link href="vendor/aos/aos.css" rel="stylesheet">
@@ -50,13 +62,22 @@
     </nav>
   </header>
 
+  <nav class="mg-topbar" aria-label="monographic.co theme controls">
+    <div class="container">
+      <a href="#mg-hero" class="mg-topbar-brand">monographic<span>.co</span></a>
+      <button class="mg-theme-toggle" id="mg-theme-toggle" type="button" aria-label="Switch to dark mode" aria-pressed="false" title="Switch to dark mode">
+        <i class="bi bi-moon-stars" aria-hidden="true"></i>
+        <span class="mg-theme-label">Dark</span>
+      </button>
+    </div>
+  </nav>
+
   <main id="main">
 
     <!-- Hero -->
     <section id="mg-hero" class="mg-hero">
       <div class="container">
-        <div class="row align-items-center gy-5">
-          <div class="col-lg-6 mg-hero-copy" data-aos="fade-up">
+        <div class="mg-hero-copy" data-aos="fade-up">
             <span class="mg-eyebrow"><span class="mg-eyebrow-dot" aria-hidden="true"></span> AI-POWERED · DONE-FOR-YOU CREATIVE AGENCY</span>
             <h1>Anda beri arahan. <span>Kami tuntaskan proses kreatifnya.</span></h1>
             <p class="mg-hero-lead">Berawal dari layanan desain grafis dan editing tradisional, monographic.co kini menjadi partner kreatif end-to-end yang memadukan strategi manusia dengan workflow berbantuan AI. Anda cukup menyampaikan brief dan feedback; kami mengelola proses dari eksplorasi hingga aset final—agar kebutuhan kreatif bisnis Anda bergerak lebih cepat dan efisien.</p>
@@ -65,9 +86,9 @@
               <a href="#services" class="mg-btn mg-btn-secondary">Lihat layanan <i class="bi bi-arrow-down" aria-hidden="true"></i></a>
             </div>
             <p class="mg-audience">Untuk <strong>E-commerce</strong><span>·</span><strong>Startup</strong><span>·</span><strong>Agensi</strong><span>·</span><strong>Kreator</strong></p>
-          </div>
+        </div>
 
-          <div class="col-lg-6" data-aos="fade-left" data-aos-delay="150">
+        <div class="mg-hero-stage" data-aos="fade-up" data-aos-delay="100">
             <div class="mg-creative-board" aria-hidden="true">
               <div class="mg-board-topline">
                 <span>MONOGRAPHIC.CO</span>
@@ -99,7 +120,6 @@
               <span class="mg-board-orbit mg-board-orbit-one"></span>
               <span class="mg-board-orbit mg-board-orbit-two"></span>
             </div>
-          </div>
         </div>
       </div>
     </section>
@@ -242,6 +262,52 @@
   <script src="vendor/aos/aos.js"></script>
   <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="js/main.js"></script>
+
+  <script>
+    (function() {
+      "use strict";
+
+      const root = document.documentElement;
+      const toggle = document.getElementById('mg-theme-toggle');
+      const icon = toggle ? toggle.querySelector('i') : null;
+      const label = toggle ? toggle.querySelector('.mg-theme-label') : null;
+
+      function applyTheme(theme, savePreference) {
+        const isDark = theme === 'dark';
+        root.setAttribute('data-theme', isDark ? 'dark' : 'light');
+
+        if (toggle) {
+          toggle.setAttribute('aria-pressed', String(isDark));
+          toggle.setAttribute('aria-label', isDark ? 'Switch to light mode' : 'Switch to dark mode');
+          toggle.title = isDark ? 'Switch to light mode' : 'Switch to dark mode';
+        }
+
+        if (icon) {
+          icon.classList.toggle('bi-sun', isDark);
+          icon.classList.toggle('bi-moon-stars', !isDark);
+        }
+
+        if (label) label.textContent = isDark ? 'Light' : 'Dark';
+
+        if (savePreference) {
+          try {
+            window.localStorage.setItem('monographic-theme', isDark ? 'dark' : 'light');
+          } catch (error) {
+            // The theme still works for this visit if storage is unavailable.
+          }
+        }
+      }
+
+      applyTheme(root.getAttribute('data-theme') === 'dark' ? 'dark' : 'light', false);
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          const nextTheme = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+          applyTheme(nextTheme, true);
+        });
+      }
+    })();
+  </script>
 
 </body>
 

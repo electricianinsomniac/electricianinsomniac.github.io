@@ -4,37 +4,82 @@
  */
 
 :root {
-  --mg-bg: #ffffff;
-  --mg-bg-soft: #f5f8fd;
-  --mg-paper: #fff;
-  --mg-ink: #45505b;
-  --mg-ink-soft: #45505b;
-  --mg-muted: #728394;
-  --mg-border: #e6e9ec;
-  --mg-accent: #0563bb;
-  --mg-accent-dark: #044e94;
-  --mg-accent-light: #e8f4fd;
+  color-scheme: light;
+  --bg-primary: #F7FBFA;
+  --bg-secondary: #EDF7F4;
+  --bg-glass: rgba(255, 255, 255, 0.78);
+  --bg-panel: #072A20;
+  --text-primary: #041A14;
+  --text-secondary: #47635B;
+  --accent-mint: #20D9A7;
+  --accent-emerald: #072A20;
+  --btn-primary-bg: #3CE3B4;
+  --btn-primary-text: #041A14;
+  --btn-secondary-bg: rgba(255, 255, 255, 0.78);
+  --btn-secondary-text: #072A20;
+  --border-subtle: rgba(7, 42, 32, 0.12);
+  --border-hover: rgba(32, 217, 167, 0.5);
+  --glow-color: rgba(60, 227, 180, 0.18);
+  --mg-bg: var(--bg-primary);
+  --mg-bg-soft: var(--bg-secondary);
+  --mg-paper: var(--bg-glass);
+  --mg-ink: var(--text-primary);
+  --mg-ink-soft: var(--text-secondary);
+  --mg-muted: var(--text-secondary);
+  --mg-border: var(--border-subtle);
+  --mg-accent: var(--accent-mint);
+  --mg-accent-dark: var(--accent-emerald);
+  --mg-accent-light: rgba(32, 217, 167, 0.12);
   --mg-radius: 12px;
-  --mg-shadow: 0 4px 24px rgba(0, 0, 0, 0.07);
+  --mg-shadow: 0 4px 24px rgba(7, 42, 32, 0.08);
+}
+
+html[data-theme="dark"] {
+  color-scheme: dark;
+  --bg-primary: #040B09;
+  --bg-secondary: #071612;
+  --bg-glass: rgba(12, 34, 28, 0.55);
+  --bg-panel: #071612;
+  --text-primary: #FFFFFF;
+  --text-secondary: #9CAEA9;
+  --accent-mint: #4FFFB0;
+  --accent-emerald: #0D382A;
+  --btn-primary-bg: #4FFFB0;
+  --btn-primary-text: #04120E;
+  --btn-secondary-bg: rgba(12, 34, 28, 0.55);
+  --btn-secondary-text: #FFFFFF;
+  --border-subtle: rgba(255, 255, 255, 0.1);
+  --border-hover: rgba(79, 255, 176, 0.35);
+  --glow-color: rgba(79, 255, 176, 0.14);
+  --mg-accent-light: rgba(79, 255, 176, 0.12);
+  --mg-accent-dark: var(--accent-mint);
+  --mg-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
 }
 
 html {
   scroll-behavior: smooth;
-  scroll-padding-top: 20px;
+  scroll-padding-top: 88px;
 }
 
 body.monographic-page {
-  color: #272829;
-  background: var(--mg-bg);
-  font-family: "Open Sans", sans-serif;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 body.monographic-page h1,
-body.monographic-page h2,
+body.monographic-page h2 {
+  color: var(--text-primary);
+  font-family: "Instrument Serif", serif;
+  font-weight: 400;
+  letter-spacing: -0.02em;
+}
+
 body.monographic-page h3,
 body.monographic-page h4 {
-  color: var(--mg-ink);
-  font-family: "Raleway", sans-serif;
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
 }
 
 body.monographic-page a {
@@ -42,11 +87,99 @@ body.monographic-page a {
 }
 
 body.monographic-page a:hover {
-  color: var(--mg-ink);
+  color: var(--accent-mint);
 }
 
 body.monographic-page section {
-  scroll-margin-top: 20px;
+  scroll-margin-top: 88px;
+}
+
+body.monographic-page #navbar .nav-menu a:hover,
+body.monographic-page #navbar .nav-menu .active,
+body.monographic-page #navbar .nav-menu .active:focus,
+body.monographic-page #navbar .nav-menu li:hover > a {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+body.monographic-page #navbar .nav-menu a:hover span,
+body.monographic-page #navbar .nav-menu .active span,
+body.monographic-page #navbar .nav-menu li:hover > a span {
+  color: var(--btn-primary-text);
+}
+
+body.monographic-page.mobile-nav-active .mobile-nav-toggle {
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+}
+
+.mg-topbar {
+  position: sticky;
+  top: 0;
+  z-index: 9900;
+  margin-left: 100px;
+  border-bottom: 1px solid var(--border-subtle);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mg-topbar .container {
+  display: flex;
+  min-height: 68px;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+body.monographic-page .mg-topbar-brand {
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  text-decoration: none;
+}
+
+body.monographic-page .mg-topbar-brand span {
+  color: var(--mg-accent);
+}
+
+.mg-theme-toggle {
+  display: inline-flex;
+  min-width: 88px;
+  min-height: 40px;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  padding: 8px 13px;
+  border: 1px solid var(--border-subtle);
+  border-radius: 999px;
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  font-family: "Plus Jakarta Sans", sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mg-theme-toggle:hover {
+  border-color: var(--border-hover);
+  box-shadow: 0 0 22px var(--glow-color);
+}
+
+.mg-theme-toggle i {
+  color: var(--mg-accent);
+  font-size: 15px;
+}
+
+.mg-theme-toggle:focus-visible {
+  outline: 3px solid var(--accent-mint);
+  outline-offset: 3px;
 }
 
 .mg-footer-brand {
@@ -54,7 +187,7 @@ body.monographic-page section {
   align-items: center;
   gap: 10px;
   color: var(--mg-ink) !important;
-  font-family: "Poppins", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-weight: 700;
   letter-spacing: -0.04em;
@@ -75,11 +208,10 @@ body.monographic-page section {
 /* Hero */
 .mg-hero {
   position: relative;
-  padding: 76px 0 96px;
+  padding: 78px 0 96px;
   overflow: hidden;
-  background:
-    radial-gradient(circle at 85% 14%, rgba(5, 99, 187, 0.09), transparent 27%),
-    var(--mg-bg-soft);
+  background: var(--bg-secondary);
+  transition: background-color 0.3s ease;
 }
 
 .mg-hero::before {
@@ -88,14 +220,34 @@ body.monographic-page section {
   left: -150px;
   width: 330px;
   height: 330px;
-  border: 1px solid rgba(69, 80, 91, 0.08);
+  border: 1px solid var(--border-subtle);
   border-radius: 50%;
   content: "";
+}
+
+.mg-hero::after {
+  position: absolute;
+  top: 150px;
+  right: 8%;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--glow-color);
+  content: "";
+  filter: blur(80px);
+  pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .mg-hero .container {
   position: relative;
   z-index: 1;
+}
+
+.mg-hero-copy {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 .mg-eyebrow,
@@ -105,8 +257,8 @@ body.monographic-page section {
   gap: 9px;
   color: var(--mg-accent);
   font-size: 11px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   line-height: 1.5;
   text-transform: uppercase;
 }
@@ -114,9 +266,11 @@ body.monographic-page section {
 .mg-eyebrow {
   margin-bottom: 22px;
   padding: 8px 13px;
-  border: 1px solid rgba(5, 99, 187, 0.18);
+  border: 1px solid var(--border-subtle);
   border-radius: 999px;
-  background: rgba(255, 255, 255, 0.9);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 .mg-eyebrow-dot {
@@ -124,28 +278,31 @@ body.monographic-page section {
   height: 7px;
   border-radius: 50%;
   background: var(--mg-accent);
-  box-shadow: 0 0 0 4px rgba(5, 99, 187, 0.12);
+  box-shadow: 0 0 0 4px var(--glow-color);
 }
 
 .mg-hero h1 {
-  max-width: 680px;
-  margin: 0 0 22px;
-  font-size: clamp(43px, 5.4vw, 70px);
-  font-weight: 700;
-  letter-spacing: -0.075em;
-  line-height: 1.03;
+  max-width: 820px;
+  margin: 0 auto 22px;
+  font-size: clamp(56px, 7vw, 90px);
+  font-weight: 400;
+  letter-spacing: -0.02em;
+  line-height: 0.98;
+  text-align: center;
 }
 
 .mg-hero h1 span {
-  color: var(--mg-accent);
+  display: block;
+  color: var(--accent-mint);
 }
 
 .mg-hero-lead {
-  max-width: 610px;
-  margin: 0 0 28px;
+  max-width: 740px;
+  margin: 0 auto 28px;
   color: var(--mg-muted);
   font-size: 16px;
-  line-height: 1.85;
+  line-height: 1.75;
+  text-align: center;
 }
 
 .mg-hero-actions,
@@ -154,6 +311,10 @@ body.monographic-page section {
   flex-wrap: wrap;
   align-items: center;
   gap: 12px;
+}
+
+.mg-hero-actions {
+  justify-content: center;
 }
 
 .mg-btn {
@@ -165,35 +326,41 @@ body.monographic-page section {
   padding: 12px 21px;
   border: 1px solid transparent;
   border-radius: 999px;
-  font-family: "Poppins", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 13px;
   font-weight: 600;
   line-height: 1.35;
   text-decoration: none;
-  transition: background 0.2s ease, border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
 }
 
 body.monographic-page a.mg-btn-primary {
-  background: var(--mg-accent);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
+  box-shadow: 0 8px 22px var(--glow-color);
 }
 
 body.monographic-page a.mg-btn-primary:hover {
-  background: var(--mg-accent-dark);
-  color: #fff;
+  background: var(--accent-mint);
+  color: var(--btn-primary-text);
   transform: translateY(-2px);
+  box-shadow: 0 10px 28px var(--glow-color);
 }
 
 body.monographic-page a.mg-btn-secondary {
-  border-color: var(--mg-border);
-  background: transparent;
-  color: var(--mg-ink);
+  border-color: var(--border-subtle);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
 }
 
 body.monographic-page a.mg-btn-secondary:hover {
-  border-color: var(--mg-ink);
-  background: var(--mg-paper);
-  color: var(--mg-ink);
+  border-color: var(--border-hover);
+  background: var(--bg-glass);
+  color: var(--text-primary);
+  box-shadow: 0 8px 22px var(--glow-color);
+  transform: translateY(-2px);
 }
 
 .mg-audience {
@@ -204,6 +371,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   margin: 26px 0 0;
   color: var(--mg-muted);
   font-size: 12px;
+  justify-content: center;
 }
 
 .mg-audience strong {
@@ -212,23 +380,42 @@ body.monographic-page a.mg-btn-secondary:hover {
 }
 
 .mg-audience span {
-  color: #a6a7ad;
+  color: var(--text-secondary);
 }
 
 /* CSS-built creative board: illustrative service categories, not client work. */
 .mg-creative-board {
   position: relative;
-  max-width: 560px;
-  min-height: 465px;
-  margin: 0 0 0 auto;
-  padding: 22px;
+  max-width: 880px;
+  min-height: 430px;
+  margin: 0 auto;
+  padding: 24px;
   overflow: hidden;
   border: 1px solid var(--mg-border);
   border-radius: 12px;
   background: var(--mg-paper);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   box-shadow: var(--mg-shadow);
   color: var(--mg-ink);
-  transform: rotate(1deg);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mg-hero-stage {
+  position: relative;
+  max-width: 940px;
+  margin: 52px auto 0;
+}
+
+.mg-hero-stage::before {
+  position: absolute;
+  inset: 10% 12%;
+  z-index: 0;
+  border-radius: 50%;
+  background: var(--glow-color);
+  content: "";
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .mg-board-topline,
@@ -239,7 +426,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   align-items: center;
   justify-content: space-between;
   gap: 10px;
-  color: var(--mg-muted);
+  color: var(--text-secondary);
   font-size: 9px;
   font-weight: 700;
   letter-spacing: 0.12em;
@@ -261,7 +448,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   grid-template-columns: 1.05fr 0.95fr;
   grid-template-rows: 1fr 1fr;
   gap: 12px;
-  min-height: 340px;
+  min-height: 370px;
 }
 
 .mg-board-tile {
@@ -273,6 +460,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   padding: 17px;
   overflow: hidden;
   border-radius: 9px;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .mg-board-index {
@@ -286,7 +474,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 .mg-board-tile strong {
   position: relative;
   z-index: 1;
-  font-family: "Raleway", sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: clamp(17px, 2vw, 25px);
   font-weight: 700;
   letter-spacing: -0.07em;
@@ -295,9 +483,10 @@ body.monographic-page a.mg-btn-secondary:hover {
 
 .mg-board-ad {
   grid-row: 1 / span 2;
-  min-height: 340px;
-  background: linear-gradient(155deg, #148af9 0%, #0563bb 48%, #044e94 100%);
+  min-height: 370px;
+  background: var(--bg-panel);
   color: #fff;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-board-shape-ad {
@@ -308,8 +497,9 @@ body.monographic-page a.mg-btn-secondary:hover {
   height: 215px;
   border: 1px solid rgba(255, 255, 255, 0.6);
   border-radius: 100px 100px 28px 28px;
-  background: linear-gradient(145deg, rgba(232, 244, 253, 0.92), rgba(255, 255, 255, 0.35));
+  background: var(--accent-mint);
   transform: rotate(-17deg);
+  transition: background-color 0.3s ease;
 }
 
 .mg-board-shape-ad::before,
@@ -344,19 +534,21 @@ body.monographic-page a.mg-btn-secondary:hover {
   height: 63px;
   place-items: center;
   border-radius: 50%;
-  background: var(--mg-accent-light);
-  color: var(--mg-accent-dark);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-size: 9px;
   font-weight: 800;
   line-height: 1.1;
   text-align: center;
   transform: rotate(9deg);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-board-identity {
   min-height: 160px;
   background: var(--mg-accent-light);
-  color: var(--mg-ink);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-identity-swatches {
@@ -377,13 +569,14 @@ body.monographic-page a.mg-btn-secondary:hover {
 }
 
 .mg-identity-swatches i:nth-child(3) {
-  background: #f2f3f5;
+  background: var(--bg-secondary);
 }
 
 .mg-board-product {
   min-height: 160px;
-  background: #f2f3f5;
-  color: var(--mg-ink);
+  background: var(--bg-secondary);
+  color: var(--text-primary);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-product-shape {
@@ -392,11 +585,12 @@ body.monographic-page a.mg-btn-secondary:hover {
   bottom: 15px;
   width: 55px;
   height: 80px;
-  border: 1px solid rgba(69, 80, 91, 0.17);
+  border: 1px solid var(--border-subtle);
   border-radius: 10px 10px 8px 8px;
-  background: linear-gradient(145deg, #fff, #e6e9ec);
-  box-shadow: 10px 7px 0 -3px rgba(69, 80, 91, 0.1);
+  background: var(--bg-glass);
+  box-shadow: 10px 7px 0 -3px var(--border-subtle);
   transform: rotate(8deg);
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
 .mg-board-footline {
@@ -415,7 +609,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   z-index: 0;
   width: 190px;
   height: 190px;
-  border: 1px solid rgba(69, 80, 91, 0.08);
+  border: 1px solid var(--border-subtle);
   border-radius: 50%;
 }
 
@@ -433,7 +627,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 
 /* Shared section layout */
 .mg-section {
-  padding: 72px 0;
+  padding: 96px 0;
 }
 
 .mg-section-heading {
@@ -469,6 +663,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 /* Evolution */
 .mg-evolution {
   background: var(--mg-paper);
+  transition: background-color 0.3s ease;
 }
 
 .mg-evolution-grid {
@@ -483,7 +678,10 @@ body.monographic-page a.mg-btn-secondary:hover {
   padding: 30px;
   border: 1px solid var(--mg-border);
   border-radius: var(--mg-radius);
-  background: var(--mg-bg-soft);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .mg-evolution-card .mg-card-kicker {
@@ -491,8 +689,8 @@ body.monographic-page a.mg-btn-secondary:hover {
   margin-bottom: 24px;
   color: var(--mg-muted);
   font-size: 10px;
-  font-weight: 700;
-  letter-spacing: 0.13em;
+  font-weight: 600;
+  letter-spacing: 0.06em;
 }
 
 .mg-evolution-card h3 {
@@ -512,7 +710,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 }
 
 .mg-evolution-now {
-  border-color: rgba(5, 99, 187, 0.2);
+  border-color: var(--border-hover);
   background: var(--mg-accent-light);
 }
 
@@ -527,9 +725,10 @@ body.monographic-page a.mg-btn-secondary:hover {
   align-self: center;
   place-items: center;
   border-radius: 50%;
-  background: var(--mg-accent);
-  color: #fff;
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
   font-size: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-process-flow {
@@ -549,10 +748,13 @@ body.monographic-page a.mg-btn-secondary:hover {
   min-height: 54px;
   padding: 10px 14px;
   border-radius: 12px;
-  background: var(--mg-bg-soft);
+  background: var(--bg-glass);
   color: var(--mg-ink-soft);
   font-size: 12px;
   font-weight: 600;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-process-flow li span {
@@ -565,12 +767,30 @@ body.monographic-page a.mg-btn-secondary:hover {
 /* Value proposition */
 .mg-value-section {
   background: var(--mg-bg-soft);
+  transition: background-color 0.3s ease;
 }
 
 .mg-value-grid {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
   gap: 16px;
+}
+
+.mg-value-grid::before,
+.mg-service-grid::before {
+  position: absolute;
+  top: 0;
+  right: 8%;
+  z-index: -1;
+  width: 72%;
+  height: 100%;
+  border-radius: 50%;
+  background: var(--glow-color);
+  content: "";
+  filter: blur(80px);
+  pointer-events: none;
 }
 
 .mg-value-card {
@@ -581,7 +801,9 @@ body.monographic-page a.mg-btn-secondary:hover {
   border: 1px solid var(--mg-border);
   border-radius: var(--mg-radius);
   background: var(--mg-paper);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
 }
 
 .mg-value-card:hover,
@@ -594,7 +816,8 @@ body.monographic-page a.mg-btn-secondary:hover {
   position: absolute;
   top: 20px;
   right: 21px;
-  color: #a6b0bb;
+  color: var(--text-secondary);
+  opacity: 0.75;
   font-size: 10px;
   font-weight: 700;
   letter-spacing: 0.1em;
@@ -610,6 +833,7 @@ body.monographic-page a.mg-btn-secondary:hover {
   background: var(--mg-accent-light);
   color: var(--mg-accent-dark);
   font-size: 21px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-value-card h3 {
@@ -630,9 +854,12 @@ body.monographic-page a.mg-btn-secondary:hover {
 /* Services */
 .mg-services {
   background: var(--mg-paper);
+  transition: background-color 0.3s ease;
 }
 
 .mg-service-grid {
+  position: relative;
+  isolation: isolate;
   display: grid;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 16px;
@@ -645,8 +872,10 @@ body.monographic-page a.mg-btn-secondary:hover {
   padding: 28px;
   border: 1px solid var(--mg-border);
   border-radius: var(--mg-radius);
-  background: var(--mg-bg-soft);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease, transform 0.25s ease;
 }
 
 .mg-service-top {
@@ -669,9 +898,10 @@ body.monographic-page a.mg-btn-secondary:hover {
   height: 42px;
   place-items: center;
   border-radius: 50%;
-  background: var(--mg-accent);
-  color: #fff;
+  background: var(--bg-panel);
+  color: var(--accent-mint);
   font-size: 18px;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 .mg-service-card h3 {
@@ -695,17 +925,21 @@ body.monographic-page a.mg-btn-secondary:hover {
   padding: 7px 11px;
   border: 1px solid var(--mg-border);
   border-radius: 999px;
-  background: var(--mg-paper);
+  background: var(--bg-glass);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   color: var(--mg-ink-soft);
   font-size: 10px;
   font-weight: 600;
   letter-spacing: 0.02em;
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 /* Closing CTA */
 .mg-contact-section {
   padding: 24px 0 94px;
   background: var(--mg-paper);
+  transition: background-color 0.3s ease;
 }
 
 .mg-contact-panel {
@@ -713,10 +947,23 @@ body.monographic-page a.mg-btn-secondary:hover {
   padding: clamp(34px, 6vw, 72px);
   overflow: hidden;
   border-radius: 12px;
-  background:
-    radial-gradient(circle at 95% 10%, rgba(232, 244, 253, 0.2), transparent 28%),
-    linear-gradient(135deg, #0563bb, #044e94);
+  background: var(--bg-panel);
   color: #fff;
+  transition: background-color 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mg-contact-panel::before {
+  position: absolute;
+  top: -80px;
+  right: -20px;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  background: var(--glow-color);
+  content: "";
+  filter: blur(80px);
+  pointer-events: none;
+  transition: background-color 0.3s ease;
 }
 
 .mg-contact-panel::after {
@@ -737,7 +984,7 @@ body.monographic-page a.mg-btn-secondary:hover {
 
 .mg-contact-panel .mg-kicker {
   margin-bottom: 16px;
-  color: #e8f4fd;
+  color: var(--accent-mint);
 }
 
 body.monographic-page .mg-contact-panel h2 {
@@ -754,13 +1001,13 @@ body.monographic-page .mg-contact-panel h2 {
 }
 
 body.monographic-page a.mg-btn-light {
-  background: #fff;
-  color: var(--mg-accent);
+  background: var(--btn-primary-bg);
+  color: var(--btn-primary-text);
 }
 
 body.monographic-page a.mg-btn-light:hover {
-  background: var(--mg-accent-light);
-  color: var(--mg-accent-dark);
+  background: var(--accent-mint);
+  color: var(--btn-primary-text);
   transform: translateY(-2px);
 }
 
@@ -786,6 +1033,7 @@ body.monographic-page a.mg-btn-quiet:hover {
   padding: 24px 0;
   border-top: 1px solid var(--mg-border);
   background: var(--mg-bg-soft);
+  transition: background-color 0.3s ease, color 0.3s ease, border-color 0.3s ease;
 }
 
 .mg-footer .container {
@@ -825,6 +1073,33 @@ body.monographic-page .mg-footer-back:hover {
 }
 
 @media (max-width: 991px) {
+  .mg-topbar {
+    margin-left: 0;
+  }
+
+  .mg-topbar .container {
+    min-height: 64px;
+    justify-content: flex-start;
+    gap: 12px;
+    padding-right: 54px;
+  }
+
+  .mg-theme-toggle {
+    width: 42px;
+    min-width: 42px;
+    margin-left: auto;
+    padding: 8px;
+  }
+
+  .mg-theme-label {
+    display: none;
+  }
+
+  body.monographic-page .mobile-nav-toggle {
+    top: 15px;
+    right: 10px;
+  }
+
   .mg-hero {
     padding: 60px 0 78px;
   }
@@ -844,7 +1119,7 @@ body.monographic-page .mg-footer-back:hover {
   }
 
   .mg-section {
-    padding: 64px 0;
+    padding: 80px 0;
   }
 }
 
@@ -925,6 +1200,10 @@ body.monographic-page .mg-footer-back:hover {
     width: 100%;
   }
 
+  .mg-topbar-brand {
+    font-size: 13px;
+  }
+
   .mg-audience {
     gap: 6px;
     font-size: 10px;
@@ -966,7 +1245,7 @@ body.monographic-page .mg-footer-back:hover {
   }
 
   .mg-section {
-    padding: 56px 0;
+    padding: 64px 0;
   }
 
   .mg-section-heading {
@@ -1022,6 +1301,75 @@ body.monographic-page .mg-footer-back:hover {
     flex-direction: column;
     gap: 9px;
   }
+}
+
+html[data-theme="dark"] body.monographic-page .nav-menu a,
+html[data-theme="dark"] body.monographic-page .nav-menu a:focus {
+  background: var(--bg-glass);
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] body.monographic-page .nav-menu a span,
+html[data-theme="dark"] body.monographic-page .nav-menu a:focus span {
+  color: var(--text-secondary);
+}
+
+html[data-theme="dark"] body.monographic-page .nav-menu a:hover,
+html[data-theme="dark"] body.monographic-page .nav-menu .active,
+html[data-theme="dark"] body.monographic-page .nav-menu .active:focus,
+html[data-theme="dark"] body.monographic-page .nav-menu li:hover > a {
+  background: var(--accent-mint);
+  color: var(--btn-primary-text);
+}
+
+html[data-theme="dark"] body.monographic-page .nav-menu a:hover span,
+html[data-theme="dark"] body.monographic-page .nav-menu .active span,
+html[data-theme="dark"] body.monographic-page .nav-menu li:hover > a span {
+  color: var(--btn-primary-text);
+}
+
+html[data-theme="dark"] body.monographic-page .mobile-nav-toggle i {
+  color: var(--text-primary);
+}
+
+@media (max-width: 991px) {
+  html[data-theme="dark"] body.monographic-page #header {
+    border-right-color: var(--border-subtle);
+    background: var(--bg-secondary);
+  }
+
+  html[data-theme="dark"] body.monographic-page.mobile-nav-active .mobile-nav-toggle {
+    background: var(--accent-mint);
+    color: var(--btn-primary-text);
+  }
+}
+
+body.monographic-page,
+.mg-topbar,
+.mg-topbar-brand,
+.mg-theme-toggle,
+.mg-hero,
+.mg-creative-board,
+.mg-board-tile,
+.mg-evolution,
+.mg-evolution-card,
+.mg-evolution-arrow,
+.mg-process-flow li,
+.mg-value-section,
+.mg-value-card,
+.mg-value-icon,
+.mg-services,
+.mg-service-card,
+.mg-service-top i,
+.mg-service-fit,
+.mg-contact-section,
+.mg-contact-panel,
+.mg-footer,
+.mg-footer-brand,
+.mg-footer-back {
+  transition-property: background-color, color, border-color, box-shadow, transform, opacity;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
 }
 
 @media (prefers-reduced-motion: reduce) {
