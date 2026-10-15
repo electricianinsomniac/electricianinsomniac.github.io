@@ -4,7 +4,7 @@ Personal portfolio website for Muhammad Rismawan at www.electricianinsomniac.my.
 
 - `index.html` — Personal Portfolio Hub (English) with project showcase cards.
 - `satsetsaji.html` — SatSetSaji landing page (QR ordering for restaurants).
-- `deries-garment.html` — Deries Garment B2B prayerwear showcase page.
+- Deries Garment — separate website at http://deriesgarment.com/.
 - `monographic.html` — monographic.co AI-powered DFY creative agency landing page.
 - `founder.html` — Founder profile (resume, certificates, portfolio).
 - `portfolio-*.html` — Portfolio project detail pages.
